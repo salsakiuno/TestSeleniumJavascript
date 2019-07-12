@@ -7,7 +7,7 @@ clone the repo
 
 
 # How to run 
-´npm test test/amazon.test.js`
+'npm test test/amazon.test.js'
 
 # Project structure
 
