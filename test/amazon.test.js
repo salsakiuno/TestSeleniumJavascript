@@ -1,24 +1,39 @@
-const {Builder, By, until} = require('selenium-webdriver');
 
-const BasePage = require("../lib/base_page");
-var assert = require('assert');
+const { describe, it, after, before } = require('mocha');
+const Page = require('../lib/searchPage');
 
-const basePage = new BasePage;
-basePage.visit('https://www.amazon.com/');
+const chai = require('chai');
+const expect = chai.expect;
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
 
+process.on('unhandledRejection', () => {});
 
-describe('search on amazon a receive a result', async () => {
-  it("search", async () => {
-    basePage.click("#nav-search > form > div.nav-fill > div.nav-search-field > input")
-    basePage.write("#nav-search > form > div.nav-fill > div.nav-search-field > input", "hats for men")
-    basePage.click("#nav-search > form > div.nav-right > div > input")
-    const hatText = basePage.find(
-      "#search > div.sg-row > div.sg-col-20-of-24.sg-col-28-of-32.sg-col-16-of-20.sg-col.s-right-column.sg-col-32-of-36.sg-col-8-of-12.sg-col-12-of-16.sg-col-24-of-28 > div > span:nth-child(4) > div.s-result-list.s-search-results.sg-row > div:nth-child(3) > div > div > div > div:nth-child(2) > div:nth-child(2) > div > div.a-section.a-spacing-none.a-spacing-top-small > h2 > a > span"
-    ).then((value)=>{
-      assert.equal(value, "Top Level Structured Classic Plain Baseball Cap Unisex Hat Adjustable Velcro Max Comfort");
-    });
-  });
-});
+(async function example() {
+    try {
+        describe ('Amazon automated testing', async function () {
+            this.timeout(50000);
+            let driver, page;
 
+            beforeEach (async () => {
+                page = new Page();
+                driver = page.driver;
+                await page.visit('https://amazon.com');
+            });
 
-//basePage.quit();
+            afterEach (async () => {
+                await page.quit();
+            });
+
+            it ('Find search box and search button', async () => {
+              const result = await page.findInputAndButton();
+              expect(result.inputEnabled).to.equal(true);
+              expect(result.buttonText).to.include('Go');
+            });
+          });
+      } catch (ex) {
+        console.log (new Error(ex.message));
+      } finally {
+
+      }
+})();
