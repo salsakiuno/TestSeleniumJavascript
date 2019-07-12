@@ -19,7 +19,7 @@ clone the repo
     │   └── searchPage.js            # Search page testing functionality
     │
     ├── test                        # Test suite
-    │   └── homePage.test.js        # Testing in Amazon search
+    │   └── amazon.test.js          # Testing in Amazon search
     │
     ├── utils                       # Utility files for testing
     │   └── locator.js              # HTML and CSS identifier for elements to test
