@@ -3,8 +3,9 @@ Selenium WebDriver using node, mocha and chia
 
 # How to install 
 clone the repo
-# Install libraries 
 
+# Install libraries 
+`npm install`
 
 # How to run 
 `npm test test/amazon.test.js`
