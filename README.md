@@ -5,18 +5,24 @@ Selenium WebDriver using node, mocha and chia
 clone the repo
 # Install libraries 
 
-- selenium-webdriver
-- mocha
-- chia
-- chia-promised
 
 # How to run 
-npm test test/amazon.test.js
+´npm test test/amazon.test.js`
 
 # Project structure
 
-- lib -> Constains the PageObject
-- locators -> Contain the locators
-- test -> contain the test
+├── ...
+│
+├── lib                         # Helper methods
+│   ├── basePage.js             # Generic functionality for tests
+│   └── homePage.js             # Search page testing functionality
+│
+├── test                        # Test suite
+│   └── homePage.test.js        # Testing in amazon search page
+│
+├── utils                       # Utility files for testing
+│    └── locator.js             # HTML and CSS identifier for elements to test
+│
+├── ...
 
 
