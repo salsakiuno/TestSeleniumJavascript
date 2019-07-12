@@ -12,18 +12,16 @@ clone the repo
 
 # Project structure
 
-├── ...
-│
-├── lib                         # Helper methods
-│   ├── basePage.js             # Generic functionality for tests
-│   └── homePage.js             # Search page testing functionality
-│
-├── test                        # Test suite
-│   └── homePage.test.js        # Testing in amazon search page
-│
-├── utils                       # Utility files for testing
-│    └── locator.js             # HTML and CSS identifier for elements to test
-│
-├── ...
-
-
+    ├── ...
+    │
+    ├── lib                         # Helper methods
+    │   ├── base_Page.js             # Generic functionality for tests
+    │   └── searchPage.js            # Search page testing functionality
+    │
+    ├── test                        # Test suite
+    │   └── homePage.test.js        # Testing in Amazon search
+    │
+    ├── utils                       # Utility files for testing
+    │   └── locator.js              # HTML and CSS identifier for elements to test
+    │
+    ├── ...
