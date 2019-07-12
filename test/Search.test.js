@@ -2,7 +2,6 @@
 const { describe, it, after, before } = require('mocha');
 const Page = require('../lib/searchPage');
 
-
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
@@ -35,11 +34,6 @@ process.on('unhandledRejection', () => {});
             it ('Enter text and search first result', async () => {
               const result = await page.submitKeywordAndGetResultforHatsForMen();
               expect(result).to.equal('Top Level Structured Classic Plain Baseball Cap Unisex Hat Adjustable Velcro Max Comfort');
-            });
-
-            it ('Enter on first item result and add Two items in the cart', async () => {
-              const result = await page.clickOnTheFirstResultandAddTwoToTheCart();
-              expect(result).to.equal('Added to Cart');
             });
 
           });
