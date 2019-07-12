@@ -2,8 +2,7 @@
 Selenium WebDriver using node, mocha and chia
 
 # How to install 
-git clone git@github.com:salsakiuno/TestSeleniumJavascript.git
-
+clone the repo
 # Install libraries 
 
 - selenium-webdriver
