@@ -28,14 +28,30 @@ process.on('unhandledRejection', () => {});
                 await page.quit();
             });
 
-            it ('Go to the cart and check the quantity and the cost', async () => {
-              let result = await page.clickOnCartAndGetTheTotalAmountAndTheCost('hats for men', dropDownQuantityTwo);
+            it ('Find search box and search button', async () => {
+              let result = await page.findInputAndButton();
+              expect(result.inputEnabled).to.equal(true);
+              expect(result.buttonText).to.include('Go');
+
+              result = await page.submitKeywordAndSearch('hats for men');
+              expect(result).to.equal('0');
+
+              result = await page.clickOnTheFirstResultandAddTwoToTheCart(dropDownQuantityTwo);
+              expect(result).to.equal('Added to Cart');
+
+              result = await page.clickOnCartAndGetTheTotalAmountAndTheCost(dropDownQuantityTwo);
               expect(result.result.quantity).to.equal('2');
               expect(result.result.totalPrice).to.equal(result.pItem*2);
               const menHatsTotal = result.pItem*2;
               const menPricePerHat = result.pItem;
 
-              result = await page.clickOnCartAndGetTheTotalAmountAndTheCost('hats for women', dropDownQuantityOne);
+              result = await page.submitKeywordAndSearch('hats for women');
+              expect(result).to.equal('0');
+
+              result = await page.clickOnTheFirstResultandAddTwoToTheCart(dropDownQuantityOne);
+              expect(result).to.equal('Added to Cart');
+
+              result = await page.clickOnCartAndGetTheTotalAmountAndTheCost(dropDownQuantityOne);
               expect(result.result.quantity).to.equal('1');
               expect(result.result.totalPrice).to.equal(Number((menHatsTotal + result.pItem).toFixed(2)));
               const womenAndMenTotalPrice = Number((menHatsTotal + result.pItem).toFixed(2));
@@ -47,10 +63,10 @@ process.on('unhandledRejection', () => {});
 
             });
 
-        });
-    } catch (ex) {
-      console.log (new Error(ex.message));
-    } finally {
+          });
+      } catch (ex) {
+        console.log (new Error(ex.message));
+      } finally {
 
-    }
+      }
 })();
