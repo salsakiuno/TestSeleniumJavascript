@@ -31,9 +31,14 @@ process.on('unhandledRejection', () => {});
               expect(result.buttonText).to.include('Go');
             });
 
-            it ('Enter text and search first result', async () => {
-              const result = await page.submitKeywordAndGetResultforHatsForMen();
-              expect(result).to.equal('Top Level Structured Classic Plain Baseball Cap Unisex Hat Adjustable Velcro Max Comfort');
+            it ('Search hats for men and get the first index result', async () => {
+              const result = await page.submitKeywordAndSearch('hats for men');
+              expect(result).to.equal('0');
+            });
+
+            it ('Search hats for women and get the first index result', async () => {
+              const result = await page.submitKeywordAndSearch('hats for women');
+              expect(result).to.equal('0');
             });
 
           });

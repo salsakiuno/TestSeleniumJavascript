@@ -1,5 +1,9 @@
 const { describe, it, after, before } = require('mocha');
 const Page = require('../lib/cartPage');
+const locator = require('../utils/locator');
+
+const dropDownQuantityTwo = locator.dropDownQuantityTwoCss;
+const dropDownQuantityOne = locator.dropDownQuantityOneCss;
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -25,8 +29,9 @@ process.on('unhandledRejection', () => {});
             });
 
             it ('Go to the cart and check the quantity and the cost', async () => {
-              const result = await page.clickOnCartAndGetTheTotalAmountAndTheCost();
-              expect(result).to.equal('Subtotal (2 items): USD 17.98');
+              const result = await page.clickOnCartAndGetTheTotalAmountAndTheCost('hats for men', dropDownQuantityTwo);
+              console.log('LALALALALA', result);
+              expect(result.quantity).to.equal('2');
             });
 
           });

@@ -1,5 +1,9 @@
 const { describe, it, after, before } = require('mocha');
 const Page = require('../lib/itemDetailPage');
+const locator = require('../utils/locator');
+
+const dropDownQuantityTwo = locator.dropDownQuantityTwoCss;
+const dropDownQuantityOne = locator.dropDownQuantityOneCss;
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -25,7 +29,7 @@ process.on('unhandledRejection', () => {});
             });
 
             it ('Enter on first item result and add Two items in the cart', async () => {
-              const result = await page.clickOnTheFirstResultandAddTwoToTheCart();
+              const result = await page.clickOnTheFirstResultandAddTwoToTheCart('hats for men', dropDownQuantityTwo);
               expect(result).to.equal('Added to Cart');
             });
 
