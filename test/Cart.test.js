@@ -29,15 +29,20 @@ process.on('unhandledRejection', () => {});
             });
 
             it ('Go to the cart and check the quantity and the cost', async () => {
-              const result = await page.clickOnCartAndGetTheTotalAmountAndTheCost('hats for men', dropDownQuantityTwo);
-              console.log('LALALALALA', result);
-              expect(result.quantity).to.equal('2');
+              let result = await page.clickOnCartAndGetTheTotalAmountAndTheCost('hats for men', dropDownQuantityTwo);
+              expect(result.result.quantity).to.equal('2');
+              expect(result.result.totalPrice).to.equal(result.pItem*2);
+              const menHatsTotal = result.pItem*2;
+
+              result = await page.clickOnCartAndGetTheTotalAmountAndTheCost('hats for women', dropDownQuantityOne);
+              expect(result.result.quantity).to.equal('1');
+              expect(result.result.totalPrice).to.equal(Number((menHatsTotal + result.pItem).toFixed(2)));
             });
 
-          });
-      } catch (ex) {
-        console.log (new Error(ex.message));
-      } finally {
+        });
+    } catch (ex) {
+      console.log (new Error(ex.message));
+    } finally {
 
-      }
+    }
 })();

@@ -9,9 +9,10 @@ module.exports = {
     dropDownQuantityOneCss: '#quantity > option:nth-child(1)',
     addToCartButtonId: 'add-to-cart-button',
     resultItemsAddedToCartCss: '#huc-v2-order-row-confirm-text > h1',
+    pricePerItemId: 'priceblock_ourprice',
 
     goToCartButtonCss: '#nav-tools > a:nth-child(4)',
     subTotalOfTwoHatsForMenItemsCss: '#a-autoid-0-announce > span.a-dropdown-prompt',
-    subTotalAmountForHatsForMenCss: '#gutterCartViewForm > div.a-box-group.sc-buy-box-group > div > div > div.sc-subtotal.a-spacing-mini > p > span > span.a-color-price.a-text-bold > span'
+    subTotalAmountForHatsForMenCss: '#gutterCartViewForm > div.a-box-group.sc-buy-box-group > div > div > div.sc-subtotal.a-spacing-mini > p > span > span.a-color-price.a-text-bold > span',
 
 };
