@@ -29,4 +29,7 @@ Selenium WebDriver using Javascript, mocha and chia
     │
     ├── ...
 
-    
+
+# Bonus point
+I didn't have enough time to do the reporting bonus point
+but I investigated and "mochawesome-report" would be a nice option to do.
