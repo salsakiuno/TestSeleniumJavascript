@@ -36,7 +36,7 @@ process.on('unhandledRejection', () => {});
               result = await page.submitKeywordAndSearch('hats for men');
               expect(result).to.equal('0');
 
-              result = await page.clickOnTheFirstResultandAddTwoToTheCart(dropDownQuantityTwo);
+              result = await page.clickOnTheFirstResultandAddItToTheCart(dropDownQuantityTwo);
               expect(result).to.equal('Added to Cart');
 
               result = await page.clickOnCartAndGetTheTotalAmountAndTheCost(dropDownQuantityTwo);
@@ -48,7 +48,7 @@ process.on('unhandledRejection', () => {});
               result = await page.submitKeywordAndSearch('hats for women');
               expect(result).to.equal('0');
 
-              result = await page.clickOnTheFirstResultandAddTwoToTheCart(dropDownQuantityOne);
+              result = await page.clickOnTheFirstResultandAddItToTheCart(dropDownQuantityOne);
               expect(result).to.equal('Added to Cart');
 
               result = await page.clickOnCartAndGetTheTotalAmountAndTheCost(dropDownQuantityOne);
@@ -57,7 +57,7 @@ process.on('unhandledRejection', () => {});
               const womenAndMenTotalPrice = Number((menHatsTotal + result.pItem).toFixed(2));
               const womanPricePerHat = result.pItem;
 
-              result = await page.changeQuantity()
+              result = await page.changeQuantityOfItemsOnTheCart()
               expect(result.quantity).to.equal('Subtotal (2 items):');
               expect(result.totalPrice).to.equal(Number((menPricePerHat + womanPricePerHat).toFixed(2)));
 

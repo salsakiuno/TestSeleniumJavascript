@@ -1,27 +1,32 @@
 # TestSeleniumJavascript
-Selenium WebDriver using node, mocha and chia
+Selenium WebDriver using Javascript, mocha and chia
 
-# How to install 
+# How to install
 `git clone git@github.com:salsakiuno/TestSeleniumJavascript.git`
 
-# Install libraries 
+# Install libraries
 `npm install`
 
-# How to run 
-`npm test test/amazon.test.js`
+# How to run
+`npm test test/amazonFull.test.js`
 
 # Project structure
 
     ├── ...
     │
     ├── lib                         # Helper methods
-    │   ├── base_Page.js             # Generic functionality for tests
-    │   └── searchPage.js            # Search page testing functionality
+    │   ├── base_Page.js            # Generic functionality for tests
+    │   └── cartPage.js             # Cart page testing functionality
+    │   └── ItemDetailPage.js       # Item detail page testing functionality
+    │   └── searchPage.js           # Search page testing functionality
+
     │
     ├── test                        # Test suite
-    │   └── amazon.test.js          # Testing in Amazon search
+    │   └── amazonFull.test.js      # Amazon test suit
     │
     ├── utils                       # Utility files for testing
     │   └── locator.js              # HTML and CSS identifier for elements to test
     │
     ├── ...
+
+    
