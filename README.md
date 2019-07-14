@@ -1,5 +1,5 @@
 # TestSeleniumJavascript
-Selenium WebDriver using Javascript, mocha and chia
+Selenium WebDriver using Javascript, mocha and chai and chai as promised
 
 # How to install
 `git clone git@github.com:salsakiuno/TestSeleniumJavascript.git`
