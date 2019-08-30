@@ -28,8 +28,3 @@ Selenium WebDriver using Javascript, mocha and chai and chai as promised
     │   └── locator.js              # HTML and CSS identifier for elements to test
     │
     ├── ...
-
-
-# Bonus point
-I didn't have enough time to do the reporting bonus point
-but I investigated and "mochawesome-report" would be a nice option to do.
